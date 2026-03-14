@@ -1,4 +1,4 @@
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
 
 const articleSchema = new mongoose.Schema({
 
@@ -13,13 +13,21 @@ const articleSchema = new mongoose.Schema({
     },
 
     category: {
-        type: String
+        type: String,
+        required: true
     },
 
     author: {
-        type: String
-    }
+        type: String,
+        required: true
+    },
 
-}, { timestamps: true })
+    tags: [
+        {
+            type: String
+        }
+    ]
 
-module.exports = mongoose.model("Article", articleSchema)
+}, { timestamps: true });
+
+module.exports = mongoose.model("Article", articleSchema);
